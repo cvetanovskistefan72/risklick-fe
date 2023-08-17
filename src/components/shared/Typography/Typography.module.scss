@@ -1,0 +1,63 @@
+@import "../../../styles/variables.scss";
+
+.text {
+  &.xs {
+    font-size: $font-size-xs;
+    line-height: $line-height-xs;
+  }
+  &.sm {
+    font-size: $font-size-sm;
+    line-height: $line-height-sm;
+  }
+  &.md {
+    font-size: $font-size-md;
+    line-height: $line-height-md;
+  }
+  &.lg {
+    font-size: $font-size-lg;
+    line-height: $line-height-lg;
+  }
+  &.xl {
+    font-size: $font-size-xl;
+    line-height: $line-height-xl;
+  }
+  &.regular {
+    font-weight: $font-weight-regular;
+  }
+  &.medium {
+    font-weight: $font-weight-medium;
+  }
+  &.semibold {
+    font-weight: $font-weight-semibold;
+  }
+  &.bold {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.display {
+  &.xs {
+    font-size: $display-font-size-xs;
+    line-height: $display-line-height-xs;
+  }
+  &.sm {
+    font-size: $display-font-size-sm;
+    line-height: $display-line-height-sm;
+  }
+  &.md {
+    font-size: $display-font-size-md;
+    line-height: $display-line-height-md;
+  }
+  &.regular {
+    font-weight: $font-weight-regular;
+  }
+  &.medium {
+    font-weight: $font-weight-medium;
+  }
+  &.semibold {
+    font-weight: $font-weight-semibold;
+  }
+  &.bold {
+    font-weight: $font-weight-bold;
+  }
+}

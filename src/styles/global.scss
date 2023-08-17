@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Caros Medium Regular";
+  src: url("../assets/fonts/CarosMedium.woff2") format("woff2"),
+    url("../assets/fonts/CarosMedium.woff") format("woff");
+  /* Add more font formats if necessary */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Caros Medium Regular", sans-serif;
+}

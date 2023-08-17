@@ -1,0 +1,43 @@
+@import "../../styles/variables.scss";
+
+.root {
+  background-color: $color-purple-500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .form {
+    background-color: $color-white;
+    padding: 16px 24px;
+    box-shadow: #64646f33 0px 7px 29px 0px;
+    border-radius: 6px;
+    min-width: 400px;
+    display: grid;
+    grid-template-rows: 0.7fr 0.5fr 1fr 1fr;
+    gap: 20px;
+    .header {
+      text-align: center;
+    }
+
+    .header2 {
+      text-align: center;
+    }
+
+    .button {
+      margin-top: 15px;
+    }
+
+    .mailIcon {
+      margin-left: 10px;
+      margin-top: 3px;
+    }
+
+    .passwordIcon {
+      margin-left: 8px;
+    }
+
+    @media (max-width: 767px) {
+      min-width: 80%;
+    }
+  }
+}

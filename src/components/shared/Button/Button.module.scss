@@ -1,0 +1,66 @@
+@import "../../../styles/variables.scss";
+.button-sizes {
+  &.small {
+    font-size: $font-size-sm;
+    padding: 6px 12px;
+  }
+
+  &.medium {
+    font-size: $font-size-md;
+    padding: 10px 15px;
+  }
+
+  &.large {
+    font-size: $font-size-md;
+    padding: 14px 20px;
+  }
+}
+.button-primary {
+  all: unset;
+  background-color: $color-purple-600;
+  color: $color-white;
+  border-radius: 6px;
+  border: 1px solid $color-purple-600;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  @extend .button-sizes;
+
+  &:hover {
+    background-color: $color-purple-700;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $color-light-purple;
+  }
+
+  &:disabled {
+    background-color: $color-gray-300;
+    cursor: not-allowed;
+  }
+}
+
+.button-secondary {
+  all: unset;
+  color: $color-midnight-blue-600;
+  border-radius: 6px;
+  border: 1px solid $color-gray-300;
+  text-align: center;
+  cursor: pointer;
+  @extend .button-sizes;
+
+  &:hover {
+    background-color: $color-gray-200;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px $color-gray-100;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

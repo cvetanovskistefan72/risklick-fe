@@ -1,0 +1,32 @@
+@import "../../../styles//variables.scss";
+
+.icon {
+  &.xs {
+    width: $icon-size-xs;
+    height: $icon-size-xs;
+  }
+  &.small {
+    width: $icon-size-small;
+    height: $icon-size-small;
+  }
+  &.medium {
+    width: $icon-size-medium;
+    height: $icon-size-medium;
+  }
+  &.large {
+    width: $icon-size-large;
+    height: $icon-size-large;
+  }
+}
+
+.icon-mail {
+  @extend .icon;
+  fill: $color-white;
+  stroke: $color-midnight-blue-500;
+}
+
+.icon-lock {
+  @extend .icon;
+  fill: $color-white;
+  stroke: $color-midnight-blue-500;
+}
