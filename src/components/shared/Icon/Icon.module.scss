@@ -30,3 +30,31 @@
   fill: $color-white;
   stroke: $color-midnight-blue-500;
 }
+
+.icon-menu {
+  @extend .icon;
+  fill: $color-midnight-blue-700;
+  stroke: transparent;
+  cursor: pointer;
+}
+
+.icon-project {
+  @extend .icon;
+  fill: $color-white;
+  stroke: transparent;
+  cursor: pointer;
+}
+
+.icon-add {
+  @extend .icon;
+  fill: $color-white;
+  stroke: transparent;
+  cursor: pointer;
+}
+
+.icon-logout {
+  @extend .icon;
+  fill: $color-white;
+  stroke: transparent;
+  cursor: pointer;
+}

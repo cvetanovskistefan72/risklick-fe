@@ -1,0 +1,14 @@
+.root {
+  
+  .dashboard {
+    margin-left: 0px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .root {
+    .dashboard {
+      margin-left: 300px;
+    }
+  }
+}
