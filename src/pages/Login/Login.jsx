@@ -34,7 +34,7 @@ const Login = () => {
       <div className={styles.form}>
         <Typography
           className={styles.header}
-          text="Welcome"
+          text="Login"
           type="display"
           size="sm"
         />

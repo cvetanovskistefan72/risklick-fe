@@ -31,30 +31,37 @@
   stroke: $color-midnight-blue-500;
 }
 
-.icon-menu {
+.icon-left {
   @extend .icon;
-  fill: $color-midnight-blue-700;
+  fill: $color-black;
+  stroke: transparent;
+  cursor: pointer;
+}
+
+.icon-close {
+  @extend .icon;
+  fill: $color-black;
   stroke: transparent;
   cursor: pointer;
 }
 
 .icon-project {
   @extend .icon;
-  fill: $color-midnight-blue-700;
+  fill: $color-black;
   stroke: transparent;
   cursor: pointer;
 }
 
 .icon-add {
   @extend .icon;
-  fill: $color-midnight-blue-700;
+  fill: $color-black;
   stroke: transparent;
   cursor: pointer;
 }
 
 .icon-logout {
   @extend .icon;
-  fill: $color-midnight-blue-700;
+  fill: $color-black;
   stroke: transparent;
   cursor: pointer;
 }
