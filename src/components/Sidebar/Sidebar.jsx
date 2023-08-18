@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Icon } from "../shared/Icon";
-import styles from "./Sidebar.module.scss";
 import { Typography } from "../shared/Typography";
 import { useAuthentication } from "../../context/AuthContext";
+import styles from "./Sidebar.module.scss";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
   const { logout } = useAuthentication();
 
   const toggleSidebar = () => setIsOpen((prev) => !prev);
@@ -24,42 +25,52 @@ const Sidebar = () => {
         </div>
         <nav className={styles.nav}>
           <ul>
-            <li>
-              <a
-                onClick={logout}
-                className={`${styles.navLink} ${styles.logout}`}
-              >
+            <a
+              onClick={logout}
+              className={`${styles.navLink} ${styles.logout}`}
+            >
+              <li>
                 <Icon name="logout" size="small" />
                 <Typography
                   text="Logout"
                   size="md"
                   className={styles.navItem}
                 />
-              </a>
-            </li>
+              </li>
+            </a>
             <div>
               <hr />
             </div>
-            <li>
-              <Link to="/" className={styles.navLink}>
+            <Link
+              to="/"
+              className={`${styles.navLink} ${
+                location.pathname === "/" ? styles.active : ""
+              }`}
+            >
+              <li>
                 <Icon name="project" size="small" />
                 <Typography
                   text="Projects"
                   size="lg"
                   className={styles.navItem}
                 />
-              </Link>
-            </li>
-            <li>
-              <Link to="/create" className={styles.navLink}>
+              </li>
+            </Link>
+            <Link
+              to="/create"
+              className={`${styles.navLink} ${
+                location.pathname === "/create" ? styles.active : ""
+              }`}
+            >
+              <li>
                 <Icon name="add" size="small" />
                 <Typography
                   text="Create Project"
                   size="lg"
                   className={styles.navItem}
                 />
-              </Link>
-            </li>
+              </li>
+            </Link>
           </ul>
         </nav>
       </div>

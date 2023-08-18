@@ -7,11 +7,11 @@ function App() {
   return (
     <div className="app-container">
       <BrowserRouter>
-        <AuthProvider>
-          <ApiProvider>
+        <ApiProvider>
+          <AuthProvider>
             <Main />
-          </ApiProvider>
-        </AuthProvider>
+          </AuthProvider>
+        </ApiProvider>
       </BrowserRouter>
     </div>
   );

@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Typography } from "../../components/shared/Typography";
 import { Button } from "../../components/shared/Button";
 import { InputField } from "../../components/shared/InputField";
 import { useNavigate } from "react-router-dom";
 import { useAuthentication } from "../../context/AuthContext";
 import { useApi } from "../../context/ApiContext";
-import { LOGIN_ENDPOINT } from "../../api/endpoints";
-import styles from "./Login.module.scss";
 import { Loading } from "../../components/shared/Loading";
+import styles from "./Login.module.scss";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { axiosClient, loading } = useApi();
+  const { loading } = useApi();
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const { handleAuthentication } = useAuthentication();
+  const { isAuthenticated, login } = useAuthentication();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, [isAuthenticated]);
 
   const handleChange = (e) => {
     setCredentials((prev) => ({
@@ -22,15 +27,7 @@ const Login = () => {
     }));
   };
 
-  const login = async () => await axiosClient.post(LOGIN_ENDPOINT, credentials);
-
-  const handleSubmit = async () => {
-    try {
-      const resp = await login();
-      handleAuthentication(resp?.data?.data.token);
-      navigate("/");
-    } catch (error) {}
-  };
+  const handleSubmit = () => login(credentials);
 
   return (
     <div className={styles.root}>
@@ -74,14 +71,12 @@ const Login = () => {
         />
         {loading && (
           <div className={styles.loading}>
-            {" "}
             <Loading isDark />
           </div>
         )}
         {!loading && (
           <Button
             className={styles.button}
-            type="secondary"
             text="Login"
             width="100%"
             size="medium"

@@ -1,7 +1,7 @@
 @import "../../styles/variables.scss";
 
 .root {
-  background-color: $color-midnight-blue-700;
+  background-color: $color-gray-100;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,10 +17,12 @@
     gap: 20px;
     .header {
       text-align: center;
+      color: $color-midnight-blue-700;
     }
 
     .header2 {
       text-align: center;
+      color: $color-midnight-blue-700;
     }
 
     .button {

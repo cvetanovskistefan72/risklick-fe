@@ -25,7 +25,8 @@
     .nav {
       grid-column: 1 / 5;
       grid-row: 1 / 2;
-      background-color: $color-midnight-blue-700;
+      box-shadow: #959da533 0px 8px 24px;
+      background-color: $color-white;
       opacity: 0.9;
       padding: 0 12px;
       min-height: 100%;
@@ -34,29 +35,33 @@
         list-style: none;
         padding: 0;
         height: 100%;
-        li {
+        .navLink {
           list-style: none;
-          background-color: $color-midnight-blue-700;
+          background-color: $color-white;
           cursor: pointer;
           text-align: left;
           padding: 10px 0 10px 20px;
           margin: 10px 0;
           display: flex;
           align-items: center;
-          .navLink {
+          text-decoration: none;
+          li {
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            color: $color-white;
-            text-decoration: none;
+            color: $color-midnight-blue-700;
             .navItem {
               padding-left: 10px;
             }
           }
 
           &:hover {
-            background-color: $color-midnight-blue-600;
+            background-color: $color-gray-100;
           }
+        }
+
+        .active {
+          background-color: $color-gray-100;
         }
 
         hr {
