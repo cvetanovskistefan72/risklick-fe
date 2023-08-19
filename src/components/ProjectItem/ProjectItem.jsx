@@ -8,14 +8,11 @@ const ProjectItem = ({ project }) => {
     <div
       className={`${styles.root} ${project?.is_owner ? styles.isOwner : ""}`}
     >
-      <Typography
-        className={styles.title}
-        type="text"
-        size="lg"
-        text={project?.name}
-      />
+      <div className={styles.title}>
+        <Typography type="text" size="lg" text={project?.name} />
+      </div>
       <div className={styles.link}>
-        <Icon name="share" size="large"  />
+        <Icon name="share" size="large" />
       </div>
       <div className={styles.date}>
         <Typography
