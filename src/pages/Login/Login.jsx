@@ -10,8 +10,8 @@ import styles from "./Login.module.scss";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { loading } = useApi();
   const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const { loading } = useApi();
   const { isAuthenticated, login } = useAuthentication();
 
   useEffect(() => {

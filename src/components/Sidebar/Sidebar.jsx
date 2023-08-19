@@ -19,8 +19,8 @@ const Sidebar = () => {
           <Icon
             onClick={toggleSidebar}
             name={isOpen ? "close" : "left"}
-            width="70px"
-            height="70px"
+            width="50px"
+            height="50px"
           />
         </div>
         <nav className={styles.nav}>

@@ -1,0 +1,29 @@
+@import "../../styles/variables.scss";
+
+.root {
+  background-color: $color-white;
+  box-shadow: #32326926 0px 2px 5px 0px, #0000000d 0px 1px 1px 0px;
+  border-left: 10px solid $color-gray-300;
+  border-radius: 3px;
+  padding: 5px 12px 0px 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+
+  .date {
+    grid-column: 2 / 3;
+    grid-row: 4/ 5;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .link{
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+  }
+}
+
+.isOwner {
+  border-left: 10px solid $color-purple-700;
+}

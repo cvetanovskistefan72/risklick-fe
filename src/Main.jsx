@@ -5,6 +5,7 @@ import { Projects } from "./pages/Projects";
 import { Layout } from "./components/Layout";
 import { CreateProject } from "./pages/CreateProject";
 import { Toaster } from "react-hot-toast";
+import { ProjectsProvider } from "./context/ProjectsContext";
 
 const Main = () => {
   return (
@@ -12,7 +13,14 @@ const Main = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route element={<Layout />}>
-          <Route path="/" element={<Projects />} />
+          <Route
+            path="/"
+            element={
+              <ProjectsProvider>
+                <Projects />
+              </ProjectsProvider>
+            }
+          />
           <Route path="/create" element={<CreateProject />} />
         </Route>
         <Route path="*" element={<div>Error 404</div>} />

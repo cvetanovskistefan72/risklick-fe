@@ -1,11 +1,22 @@
 @import "../../styles/variables.scss";
 
 .root {
-  background-color: $color-white;
-  box-shadow: #32326926 0px 2px 5px 0px, #0000000d 0px 1px 1px 0px;
+  //background-color: $color-white;
+  //box-shadow: #32326926 0px 2px 5px 0px, #0000000d 0px 1px 1px 0px;
   padding: 10px 30px;
   border-radius: 5px;
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
   .title {
     color: $color-black;
+  }
+
+  hr {
+    border: 1px solid $color-purple-700;
+    color: $color-purple-700;
   }
 }

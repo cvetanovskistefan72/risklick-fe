@@ -65,3 +65,10 @@
   stroke: transparent;
   cursor: pointer;
 }
+
+.icon-share {
+  @extend .icon;
+  fill: $color-midnight-blue-500;
+  stroke: transparent;
+  cursor: pointer;
+}

@@ -11,7 +11,7 @@
     padding: 16px 24px;
     box-shadow: #64646f33 0px 7px 29px 0px;
     border-radius: 5px;
-    min-width: 400px;
+    min-width: 80%;
     display: grid;
     grid-template-rows: 0.7fr 0.5fr 1fr 1fr;
     gap: 20px;
@@ -43,9 +43,13 @@
       justify-content: center;
       margin-top: 25px;
     }
+  }
+}
 
-    @media (max-width: 767px) {
-      min-width: 80%;
+@media (min-width: 1024px) {
+  .root {
+    .form {
+      min-width: 400px;
     }
   }
 }

@@ -16,10 +16,20 @@ export function ApiProvider({ children }) {
     },
   });
 
-  axiosClient.interceptors.request.use((config) => {
-    setLoading(true);
-    return config;
-  });
+  axiosClient.interceptors.request.use(
+    (config) => {
+      const token = sessionStorage.getItem("TOKEN");
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+      setLoading(true);
+      return config;
+    },
+    (error) => {
+      setLoading(false);
+      return Promise.reject(error);
+    }
+  );
 
   axiosClient.interceptors.response.use(
     (response) => {
