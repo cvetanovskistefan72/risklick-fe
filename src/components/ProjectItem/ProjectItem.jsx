@@ -2,8 +2,13 @@ import React from "react";
 import { Typography } from "../shared/Typography";
 import { Icon } from "../shared/Icon";
 import styles from "./ProjectItem.module.scss";
+import { toast } from "react-hot-toast";
 
 const ProjectItem = ({ project }) => {
+  const copyLink = () => {
+    navigator.clipboard.writeText(project.share_url);
+    toast.success(`Link copied!`);
+  };
   return (
     <div
       className={`${styles.root} ${project?.is_owner ? styles.isOwner : ""}`}
@@ -12,7 +17,7 @@ const ProjectItem = ({ project }) => {
         <Typography type="text" size="lg" text={project?.name} />
       </div>
       <div className={styles.link}>
-        <Icon name="share" size="large" />
+        <Icon onClick={copyLink} name="share" size="large" />
       </div>
       <div className={styles.date}>
         <Typography

@@ -32,6 +32,16 @@ const Projects = () => {
         size="sm"
       />
       <hr />
+      <div className={styles.badges}>
+        <div className={styles.info}>
+          <div className={styles.badge1}></div>
+          <Typography text=" - Your projects" />
+        </div>
+        <div className={styles.info}>
+          <div className={styles.badge2}></div>
+          <Typography text=" - Other projects" />
+        </div>
+      </div>
       {projects && <ProjectList projects={projects} />}
     </div>
   );

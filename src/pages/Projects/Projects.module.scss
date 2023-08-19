@@ -14,12 +14,38 @@
       z-index: -1;
     }
   }
+
   .title {
     color: $color-black;
   }
 
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+    .badge {
+      padding: 5px;
+      margin-right: 10px;
+      width: 70px;
+    }
+
+    .info {
+      display: flex;
+      justify-content: flex-start;
+      margin: 5px;
+      .badge1 {
+        @extend .badge;
+        background-color: $color-purple-700;
+      }
+      .badge2 {
+        @extend .badge;
+        background-color: $color-midnight-blue-700
+      }
+    }
+  }
+
   hr {
-    border: 1px solid $color-purple-700;
-    color: $color-purple-700;
+    border: 1px solid $color-gray-300;
+    color: $color-gray-300;
   }
 }
