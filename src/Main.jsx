@@ -11,29 +11,24 @@ import { ServicesProvider } from "./context/ServiceContext";
 const Main = () => {
   return (
     <div>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route element={<Layout />}>
-          <Route
-            path="/"
-            element={
-              <ProjectsProvider>
-                <Projects />
-              </ProjectsProvider>
-            }
-          />
-          <Route
-            path="/create"
-            element={
-              <ServicesProvider>
-                <CreateProject />
-              </ServicesProvider>
-            }
-          />
-        </Route>
-        <Route path="*" element={<div>Error 404</div>} />
-      </Routes>
-      <Toaster position="top-right" />
+      <ProjectsProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<Projects />} />
+            <Route
+              path="/create"
+              element={
+                <ServicesProvider>
+                  <CreateProject />
+                </ServicesProvider>
+              }
+            />
+          </Route>
+          <Route path="*" element={<div>Error 404</div>} />
+        </Routes>
+        <Toaster position="top-right" />
+      </ProjectsProvider>
     </div>
   );
 };

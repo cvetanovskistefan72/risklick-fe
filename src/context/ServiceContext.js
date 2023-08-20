@@ -1,17 +1,16 @@
 import React, { createContext, useContext, useState } from "react";
-import { useApi } from "./ApiContext";
 import { SERVICES_ENDPOINT } from "../api/endpoints";
+import { useApiClient } from "../hooks/useApiClient";
 
 const ServicesContext = createContext();
 
 export const ServicesProvider = ({ children }) => {
   const [services, setServices] = useState([]);
-  const { axiosClient } = useApi();
-
+  const api = useApiClient();
   const getServices = async () => {
     try {
-      const res = await axiosClient.get(SERVICES_ENDPOINT);
-      setServices(res?.data?.data);
+      const { data } = await api.get(SERVICES_ENDPOINT);
+      setServices(data);
     } catch (error) {}
   };
 

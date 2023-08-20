@@ -1,30 +1,34 @@
 import React, { createContext, useContext, useState } from "react";
-import { useApi } from "./ApiContext";
 import { LOGIN_ENDPOINT } from "../api/endpoints";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { useApiClient } from "../hooks/useApiClient";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    const storedAuthState = sessionStorage.getItem("TOKEN");
+    const storedAuthState = localStorage.getItem("TOKEN");
     return storedAuthState ? true : false;
   });
-  const { axiosClient } = useApi();
+  const navigate = useNavigate();
+  const api = useApiClient();
 
   const login = async (body) => {
     try {
-      const res = await axiosClient.post(LOGIN_ENDPOINT, body);
-      if (res?.data?.data?.token) {
-        sessionStorage.setItem("TOKEN", res?.data?.data?.token);
+      const { data } = await api.post(LOGIN_ENDPOINT, body);
+
+      if (data?.token) {
+        localStorage.setItem("TOKEN", data?.token);
         setIsAuthenticated(true);
+        navigate("/");
         toast.success("Welcome");
       }
     } catch (error) {}
   };
 
   const logout = () => {
-    sessionStorage.removeItem("TOKEN");
+    localStorage.removeItem("TOKEN");
     setIsAuthenticated(false);
   };
 

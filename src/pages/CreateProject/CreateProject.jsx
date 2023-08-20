@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Typography } from "../../components/shared/Typography";
 import { useServices } from "../../context/ServiceContext";
-import { useApi } from "../../context/ApiContext";
 import { Loading } from "../../components/shared/Loading";
 import { InputField } from "../../components/shared/InputField";
-import styles from "./CreateProject.module.scss";
 import { Button } from "../../components/shared/Button";
-import { useNavigate } from "react-router-dom";
+import { useLoading } from "../../context/LoadingContext";
+import styles from "./CreateProject.module.scss";
 
 const CreateProject = () => {
   const navigate = useNavigate();
-  const { loading } = useApi();
   const { services, getServices } = useServices();
   const [credentials, setCredentials] = useState({ name: "" });
+  const { loading } = useLoading();
 
   useEffect(() => {
     getServices();
@@ -20,7 +20,7 @@ const CreateProject = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+
   };
 
   const handleChange = (e) => {
@@ -30,7 +30,7 @@ const CreateProject = () => {
     }));
   };
 
-  const cancel = () => navigate("/")
+  const cancel = () => navigate("/");
 
   if (loading) {
     return (

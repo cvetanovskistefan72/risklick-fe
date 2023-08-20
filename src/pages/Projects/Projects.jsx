@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
-import { useApi } from "../../context/ApiContext";
 import { useProjects } from "../../context/ProjectsContext";
 import { Typography } from "../../components/shared/Typography";
 import { Loading } from "../../components/shared/Loading";
 import styles from "./Projects.module.scss";
 import { ProjectList } from "../../components/ProjectList";
+import { useLoading } from "../../context/LoadingContext";
 
 const Projects = () => {
   const { projects, getProjects } = useProjects();
-  const { loading } = useApi();
-
+  const { loading } = useLoading();
   useEffect(() => {
     getProjects();
   }, []);

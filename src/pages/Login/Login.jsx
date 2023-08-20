@@ -4,15 +4,15 @@ import { Button } from "../../components/shared/Button";
 import { InputField } from "../../components/shared/InputField";
 import { useNavigate } from "react-router-dom";
 import { useAuthentication } from "../../context/AuthContext";
-import { useApi } from "../../context/ApiContext";
 import { Loading } from "../../components/shared/Loading";
 import styles from "./Login.module.scss";
+import { useLoading } from "../../context/LoadingContext";
 
 const Login = () => {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const { loading } = useApi();
   const { isAuthenticated, login } = useAuthentication();
+  const { loading } = useLoading();
 
   useEffect(() => {
     if (isAuthenticated) {
