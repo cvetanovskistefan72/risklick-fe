@@ -3,8 +3,8 @@ import { Typography } from "../../components/shared/Typography";
 import { useServices } from "../../context/ServiceContext";
 import { Loading } from "../../components/shared/Loading";
 import { useLoading } from "../../context/LoadingContext";
-import styles from "./CreateProject.module.scss";
 import { CreateProjectForm } from "../../components/CreateProjectForm";
+import styles from "./CreateProject.module.scss";
 
 const CreateProject = () => {
   const { services, getServices } = useServices();
