@@ -27,11 +27,14 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = () => login(credentials);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(credentials);
+  };
 
   return (
     <div className={styles.root}>
-      <div className={styles.form}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <Typography
           className={styles.header}
           text="Login"
@@ -76,14 +79,15 @@ const Login = () => {
         )}
         {!loading && (
           <Button
+            buttonType="primary"
             className={styles.button}
             text="Login"
             width="100%"
             size="medium"
-            onClick={handleSubmit}
+            type="submit"
           />
         )}
-      </div>
+      </form>
     </div>
   );
 };

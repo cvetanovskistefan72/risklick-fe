@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./Button.module.scss";
 
 const Button = ({
-  type = "primary",
+  buttonType = "primary",
+  type,
   text,
   size = "medium",
   width,
@@ -13,7 +14,7 @@ const Button = ({
 }) => {
   let buttonClassName;
 
-  switch (type) {
+  switch (buttonType) {
     case "primary":
       buttonClassName = styles["button-primary"];
       break;
@@ -30,6 +31,7 @@ const Button = ({
       className={`${buttonClassName} ${styles[size]} ${className}`}
       style={{ width, height }}
       onClick={onClick}
+      type={type || "button"}
     >
       {text}
     </button>

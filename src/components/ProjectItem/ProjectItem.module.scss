@@ -2,9 +2,10 @@
 
 .root {
   background-color: $color-white;
-  box-shadow: #32326926 0px 2px 5px 0px, #0000000d 0px 1px 1px 0px;
-  border-left: 10px solid $color-midnight-blue-700;
-  border-radius: 3px;
+  box-shadow: #11111a0d 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  border-left: 8px solid $color-midnight-blue-700;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
   padding: 5px 12px 0px 12px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -35,5 +36,5 @@
 }
 
 .isOwner {
-  border-left: 10px solid $color-purple-700;
+  border-left: 8px solid $color-purple-700;
 }

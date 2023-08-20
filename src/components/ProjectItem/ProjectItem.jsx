@@ -4,8 +4,8 @@ import { useMediaQuery } from "react-responsive";
 import { Typography } from "../shared/Typography";
 import { Icon } from "../shared/Icon";
 import formatDate from "../../helpers/formatDate";
-import styles from "./ProjectItem.module.scss";
 import isOlderThanTwoMonths from "../../helpers/isOlderThanTwoMonths";
+import styles from "./ProjectItem.module.scss";
 
 const ProjectItem = ({ project }) => {
   const isMobilePortrait = useMediaQuery({
@@ -23,8 +23,9 @@ const ProjectItem = ({ project }) => {
   if (
     (isMobilePortrait || isMobileLandscape) &&
     isOlderThanTwoMonths(project?.created_at)
-  )
+  ) {
     return null;
+  }
   return (
     <div
       className={`${styles.root} ${project?.is_owner ? styles.isOwner : ""}`}

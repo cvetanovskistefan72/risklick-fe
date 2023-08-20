@@ -72,3 +72,10 @@
   stroke: transparent;
   cursor: pointer;
 }
+
+.icon-text {
+  @extend .icon;
+  fill: $color-white;
+  stroke: $color-midnight-blue-600;
+  cursor: pointer;
+}

@@ -1,8 +1,6 @@
 @import "../../styles/variables.scss";
 
 .root {
-  //background-color: $color-white;
-  //box-shadow: #32326926 0px 2px 5px 0px, #0000000d 0px 1px 1px 0px;
   padding: 10px 30px;
   border-radius: 5px;
   .loading {
@@ -32,7 +30,7 @@
     .info {
       display: flex;
       justify-content: flex-start;
-      margin: 5px;
+      margin: 0 5px 5px 5px;
       .badge1 {
         @extend .badge;
         background-color: $color-purple-700;
@@ -47,5 +45,6 @@
   hr {
     border: 1px solid $color-gray-300;
     color: $color-gray-300;
+    margin-bottom: 20px
   }
 }

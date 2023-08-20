@@ -6,6 +6,7 @@ import { Layout } from "./components/Layout";
 import { CreateProject } from "./pages/CreateProject";
 import { Toaster } from "react-hot-toast";
 import { ProjectsProvider } from "./context/ProjectsContext";
+import { ServicesProvider } from "./context/ServiceContext";
 
 const Main = () => {
   return (
@@ -21,7 +22,14 @@ const Main = () => {
               </ProjectsProvider>
             }
           />
-          <Route path="/create" element={<CreateProject />} />
+          <Route
+            path="/create"
+            element={
+              <ServicesProvider>
+                <CreateProject />
+              </ServicesProvider>
+            }
+          />
         </Route>
         <Route path="*" element={<div>Error 404</div>} />
       </Routes>
