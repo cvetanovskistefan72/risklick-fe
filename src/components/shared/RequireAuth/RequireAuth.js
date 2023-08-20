@@ -1,9 +1,15 @@
 import { Navigate } from "react-router-dom";
-import { useAuthentication } from "../../../context/AuthContext";
+
 
 const RequireAuth = ({ children }) => {
-  const { isAuthenticated } = useAuthentication();
-  if (!isAuthenticated) {
+  const authDataString = localStorage.getItem("auth");
+
+  if (!authDataString) {
+    return <Navigate to="/login" />;
+  }
+
+  const authData = JSON.parse(authDataString);
+  if (!authData || !authData.token) {
     return <Navigate to="/login" />;
   }
 

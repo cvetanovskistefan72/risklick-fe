@@ -1,11 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
+import { isAfter } from "date-fns";
 import { toast } from "react-hot-toast";
-import { apiBaseUrl } from "../constants";
+import { apiBaseUrl, defaultError, sessionExpired } from "../constants";
 import { useLoading } from "../context/LoadingContext";
+import { useNavigate } from "react-router-dom";
 
 export function useApiClient() {
   const { setLoading } = useLoading();
+  const navigate = useNavigate();
   const [apiClient] = useState(() => {
     const instance = axios.create({
       baseURL: apiBaseUrl,
@@ -16,8 +19,20 @@ export function useApiClient() {
 
     instance.interceptors.request.use(
       (config) => {
-        const token = localStorage.getItem("TOKEN");
-        if (token) {
+        const authDataString = localStorage.getItem("auth");
+
+        if (authDataString) {
+          const authData = JSON.parse(authDataString);
+          const { token, expirationDate } = authData;
+
+          const currentDate = new Date();
+          const tokenDate = new Date(expirationDate);
+
+          if (isAfter(currentDate, tokenDate)) {
+            localStorage.removeItem("auth");
+            toast.error(sessionExpired);
+            navigate("/login");
+          }
           config.headers.Authorization = `Bearer ${token}`;
         }
         setLoading(true);
@@ -36,7 +51,7 @@ export function useApiClient() {
       },
       (error) => {
         setLoading(false);
-        toast.error(error?.response?.data?.message);
+        toast.error(error?.response?.data?.message || defaultError);
         return Promise.reject(error);
       }
     );

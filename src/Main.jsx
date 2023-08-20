@@ -7,6 +7,7 @@ import { CreateProject } from "./pages/CreateProject";
 import { Toaster } from "react-hot-toast";
 import { ProjectsProvider } from "./context/ProjectsContext";
 import { ServicesProvider } from "./context/ServiceContext";
+import { RequireAuth } from "./components/shared/RequireAuth";
 
 const Main = () => {
   return (
@@ -15,13 +16,22 @@ const Main = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route element={<Layout />}>
-            <Route path="/" element={<Projects />} />
+            <Route
+              path="/"
+              element={
+                <RequireAuth>
+                  <Projects />
+                </RequireAuth>
+              }
+            />
             <Route
               path="/create"
               element={
-                <ServicesProvider>
-                  <CreateProject />
-                </ServicesProvider>
+                <RequireAuth>
+                  <ServicesProvider>
+                    <CreateProject />
+                  </ServicesProvider>
+                </RequireAuth>
               }
             />
           </Route>

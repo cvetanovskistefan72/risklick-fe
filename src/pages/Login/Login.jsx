@@ -11,14 +11,18 @@ import { useLoading } from "../../context/LoadingContext";
 const Login = () => {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  const { isAuthenticated, login } = useAuthentication();
+  const { login } = useAuthentication();
   const { loading } = useLoading();
 
   useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/");
+    const authDataString = localStorage.getItem("auth");
+    if (authDataString) {
+      const authData = JSON.parse(authDataString);
+      const { token } = authData;
+      console.log(token)
+      if (!!token) navigate("/");
     }
-  }, [isAuthenticated]);
+  }, []);
 
   const handleChange = (e) => {
     setCredentials((prev) => ({

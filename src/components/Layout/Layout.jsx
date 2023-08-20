@@ -1,7 +1,6 @@
 import React from "react";
 import { Sidebar } from "../Sidebar";
 import { Outlet } from "react-router-dom";
-import { RequireAuth } from "../shared/RequireAuth";
 import styles from "./Layout.module.scss";
 
 const Layout = () => {
@@ -11,9 +10,7 @@ const Layout = () => {
         <Sidebar />
       </div>
       <div className={styles.dashboard}>
-        <RequireAuth>
           <Outlet />
-        </RequireAuth>
       </div>
     </div>
   );

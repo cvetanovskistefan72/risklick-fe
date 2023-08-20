@@ -1,16 +1,14 @@
-import React, { createContext, useContext, useState } from "react";
-import { LOGIN_ENDPOINT } from "../api/endpoints";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useApiClient } from "../hooks/useApiClient";
+import { LOGIN_ENDPOINT } from "../api/endpoints";
+import { welcomeMessage } from "../constants";
+import convertExpiresInToDate from "../helpers/convertExpiresInToDate";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    const storedAuthState = localStorage.getItem("TOKEN");
-    return storedAuthState ? true : false;
-  });
   const navigate = useNavigate();
   const api = useApiClient();
 
@@ -18,24 +16,27 @@ export const AuthProvider = ({ children }) => {
     try {
       const { data } = await api.post(LOGIN_ENDPOINT, body);
 
-      if (data?.token) {
-        localStorage.setItem("TOKEN", data?.token);
-        setIsAuthenticated(true);
+      if (data?.token && data?.expires_in) {
+        const expirationDate = convertExpiresInToDate(data.expires_in);
+        const authData = {
+          token: data.token,
+          expirationDate: expirationDate,
+        };
+        localStorage.setItem("auth", JSON.stringify(authData));
+        toast.success(welcomeMessage);
         navigate("/");
-        toast.success("Welcome");
       }
     } catch (error) {}
   };
 
   const logout = () => {
-    localStorage.removeItem("TOKEN");
-    setIsAuthenticated(false);
+    localStorage.removeItem("auth");
+    navigate("/login");
   };
 
   return (
     <AuthContext.Provider
       value={{
-        isAuthenticated,
         logout,
         login,
       }}
