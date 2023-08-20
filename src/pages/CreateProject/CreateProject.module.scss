@@ -13,23 +13,7 @@
     }
   }
 
-  .form {
-    background-color: $color-white;
-    box-shadow: #11111a0d 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-    padding: 20px;
-    border-radius: 3px;
-    .nameIcon {
-      margin-left: 10px;
-    }
-    .buttons {
-      display: grid;
-      margin-top: 15px;
-      button {
-        margin: 5px 0px;
-        width: 100%;
-      }
-    }
-  }
+
   hr {
     border: 1px solid $color-gray-300;
     color: $color-gray-300;
@@ -37,17 +21,3 @@
   }
 }
 
-@media (min-width: 1024px) {
-  .root {
-    .form {
-      .buttons {
-        justify-content: flex-end;
-        button {
-          margin: 5px;
-          grid-row: 1 / 2;
-          width: auto;
-        }
-      }
-    }
-  }
-}

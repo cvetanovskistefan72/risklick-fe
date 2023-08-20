@@ -14,7 +14,7 @@ export const axiosClient = axios.create({
   },
 });
 
-export function ApiProvider({ children }) {
+export const ApiProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -52,8 +52,8 @@ export function ApiProvider({ children }) {
   return (
     <ApiContext.Provider value={{ loading }}>{children}</ApiContext.Provider>
   );
-}
+};
 
-export function useApi() {
+export const useApi = () => {
   return useContext(ApiContext);
-}
+};

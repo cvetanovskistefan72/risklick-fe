@@ -6,9 +6,10 @@ import { apiBaseUrl, defaultError, sessionExpired } from "../constants";
 import { useLoading } from "../context/LoadingContext";
 import { useNavigate } from "react-router-dom";
 
-export function useApiClient() {
+export const useApiClient = () => {
   const { setLoading } = useLoading();
   const navigate = useNavigate();
+
   const [apiClient] = useState(() => {
     const instance = axios.create({
       baseURL: apiBaseUrl,
@@ -99,4 +100,4 @@ export function useApiClient() {
   };
 
   return { get, post, del, put };
-}
+};
