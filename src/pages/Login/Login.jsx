@@ -19,7 +19,6 @@ const Login = () => {
     if (authDataString) {
       const authData = JSON.parse(authDataString);
       const { token } = authData;
-      console.log(token)
       if (!!token) navigate("/");
     }
   }, []);

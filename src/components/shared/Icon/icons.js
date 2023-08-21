@@ -107,6 +107,19 @@ const textSVG = (
   </>
 );
 
+const checkSVG = (
+  <>
+    <g>
+      <path
+        d="M16.667 5 7.5 14.167 3.333 10"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </g>
+  </>
+);
+
 const icons = {
   mail: mailSVG,
   lock: lockSVG,
@@ -117,6 +130,7 @@ const icons = {
   close: closeSVG,
   share: shareSVG,
   text: textSVG,
+  check: checkSVG,
 };
 
 export default icons;

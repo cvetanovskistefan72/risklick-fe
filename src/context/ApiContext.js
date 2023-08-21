@@ -21,7 +21,6 @@ export const ApiProvider = ({ children }) => {
   useEffect(() => {
     axiosClient.interceptors.request.use(
       (config) => {
-        console.log("request");
         const token = sessionStorage.getItem("TOKEN");
         if (token) {
           config.headers.Authorization = `Bearer ${token}`;

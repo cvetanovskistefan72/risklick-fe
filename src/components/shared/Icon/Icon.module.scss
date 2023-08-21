@@ -79,3 +79,10 @@
   stroke: $color-midnight-blue-600;
   cursor: pointer;
 }
+
+.icon-check {
+  @extend .icon;
+  fill: $color-white;
+  stroke: $color-purple-500;
+  cursor: pointer;
+}

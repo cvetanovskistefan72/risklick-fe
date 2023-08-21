@@ -20,25 +20,18 @@
 
 .select {
   grid-column: 1 / 3;
-  border-radius: 5px;
-  width: 100%;
   box-sizing: border-box;
   font-size: 14px;
   font-family: "Caros Medium Regular", sans-serif;
   width: 100%;
-  color: $color-midnight-blue-500;
+  color: $color-midnight-blue-500!important;
   &:hover {
     color: $color-black;
   }
+}
 
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px $color-light-purple;
-  }
 
-  &:disabled {
-    background-color: $color-gray-100;
-    color: $color-midnight-blue-700;
-    cursor: not-allowed;
-  }
+.option{
+  display: flex;
+  justify-content: space-between;
 }

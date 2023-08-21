@@ -20,7 +20,6 @@ const CreateProjectForm = ({ services }) => {
   };
 
   const handleChangeSelect = (value, { name }) => {
-    console.log(name, value)
     setCredentials((prev) => ({
       ...prev,
       [name]: value,
