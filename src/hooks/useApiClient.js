@@ -30,8 +30,8 @@ export const useApiClient = () => {
           const tokenDate = new Date(expirationDate);
 
           if (isAfter(currentDate, tokenDate)) {
-            localStorage.removeItem("auth");
             toast.error(sessionExpired);
+            localStorage.removeItem("auth");
             navigate("/login");
           }
           config.headers.Authorization = `Bearer ${token}`;
@@ -53,6 +53,8 @@ export const useApiClient = () => {
       (error) => {
         setLoading(false);
         toast.error(error?.response?.data?.message || defaultError);
+        localStorage.removeItem("auth");
+        navigate("/login");
         return Promise.reject(error);
       }
     );

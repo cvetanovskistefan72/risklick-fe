@@ -7,10 +7,11 @@ import { ProjectList } from "../../components/ProjectList";
 import { useLoading } from "../../context/LoadingContext";
 
 const Projects = () => {
-  const { projects, getProjects } = useProjects();
+  const { projects, getProjects, setProjects } = useProjects();
   const { loading } = useLoading();
   useEffect(() => {
     getProjects();
+    return () => setProjects([]);
   }, []);
 
   if (loading) {

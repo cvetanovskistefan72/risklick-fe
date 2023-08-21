@@ -32,6 +32,7 @@ export const ProjectsProvider = ({ children }) => {
         projects,
         getProjects,
         addProject,
+        setProjects,
       }}
     >
       {children}
