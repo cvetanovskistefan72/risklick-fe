@@ -34,7 +34,7 @@ const ProjectItem = ({ project }) => {
         <Typography type="text" size="lg" text={project?.name} />
       </div>
       <div className={styles.link}>
-        <Icon onClick={copyLink} name="share" size="large" />
+        <Icon onClick={copyLink} name="share" size="lg" />
       </div>
       <div className={styles.date}>
         <Typography

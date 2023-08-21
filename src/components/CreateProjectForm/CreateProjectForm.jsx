@@ -43,10 +43,6 @@ const CreateProjectForm = ({ services }) => {
         placeholder="Enter name"
         value={credentials.name}
         onChange={handleChangeInput}
-        icon
-        iconName="text"
-        iconSize="small"
-        iconClass={styles.nameIcon}
       />
       <SelectField
         name="service"

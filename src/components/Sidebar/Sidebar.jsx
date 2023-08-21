@@ -30,7 +30,7 @@ const Sidebar = () => {
               className={`${styles.navLink} ${styles.logout}`}
             >
               <li>
-                <Icon name="logout" size="small" />
+                <Icon name="logout" size="sm" />
                 <Typography
                   text="Logout"
                   size="md"
@@ -48,7 +48,7 @@ const Sidebar = () => {
               }`}
             >
               <li>
-                <Icon name="project" size="small" />
+                <Icon name="project" size="sm" />
                 <Typography
                   text="Projects"
                   size="lg"
@@ -63,7 +63,7 @@ const Sidebar = () => {
               }`}
             >
               <li>
-                <Icon name="add" size="small" />
+                <Icon name="add" size="sm" />
                 <Typography
                   text="Create Project"
                   size="lg"

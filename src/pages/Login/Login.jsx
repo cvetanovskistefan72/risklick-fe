@@ -59,7 +59,7 @@ const Login = () => {
           onChange={handleChange}
           icon
           iconName="mail"
-          iconSize="small"
+          iconSize="sm"
           iconClass={styles.mailIcon}
         />
         <InputField
@@ -72,7 +72,7 @@ const Login = () => {
           onChange={handleChange}
           icon
           iconName="lock"
-          iconSize="small"
+          iconSize="sm"
           iconClass={styles.passwordIcon}
         />
         {loading && (

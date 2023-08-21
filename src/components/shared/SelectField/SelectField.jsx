@@ -27,7 +27,7 @@ const SelectField = ({
         <div className={styles.option}>
           <span>{o.label}</span>
           {o.value === value?.value && menuIsOpen && (
-            <Icon name="check" size="small" />
+            <Icon name="check" size="sm" />
           )}
         </div>
       ),
