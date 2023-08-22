@@ -1,6 +1,6 @@
 # My React Project for Risklick
 
-Welcome to my React project for Risk
+Welcome to my React project for Risklick.
 
 ## Getting Started
 
