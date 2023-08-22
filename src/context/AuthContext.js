@@ -1,10 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext } from "react";
 import { toast } from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useApiClient } from "../hooks/useApiClient";
+import { useNavigate } from "react-router-dom";
 import { LOGIN_ENDPOINT } from "../api/endpoints";
 import { welcomeMessage } from "../constants";
 import convertExpiresInToDate from "../helpers/convertExpiresInToDate";
+import { useApiClient } from "../hooks/useApiClient";
 
 const AuthContext = createContext();
 

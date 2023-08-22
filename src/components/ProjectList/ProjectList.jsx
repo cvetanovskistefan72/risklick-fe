@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./ProjectList.module.scss";
 import ProjectItem from "../ProjectItem/ProjectItem";
+import styles from "./ProjectList.module.scss";
 
 const ProjectList = ({ projects }) => {
   return (

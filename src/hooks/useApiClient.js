@@ -53,8 +53,10 @@ export const useApiClient = () => {
       (error) => {
         setLoading(false);
         toast.error(error?.response?.data?.message || defaultError);
-        localStorage.removeItem("auth");
-        navigate("/login");
+        if (error?.response.status === 401) {
+          localStorage.removeItem("auth");
+          navigate("/login");
+        }
         return Promise.reject(error);
       }
     );

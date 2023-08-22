@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { useProjects } from "../../context/ProjectsContext";
-import { Typography } from "../../components/shared/Typography";
-import { Loading } from "../../components/shared/Loading";
-import styles from "./Projects.module.scss";
 import { ProjectList } from "../../components/ProjectList";
+import { Loading } from "../../components/shared/Loading";
+import { Typography } from "../../components/shared/Typography";
 import { useLoading } from "../../context/LoadingContext";
+import { useProjects } from "../../context/ProjectsContext";
+import styles from "./Projects.module.scss";
 
 const Projects = () => {
   const { projects, getProjects, setProjects } = useProjects();

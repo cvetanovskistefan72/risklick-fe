@@ -12,7 +12,7 @@
   .services {
     margin-top: 15px;
   }
-  
+
   .buttons {
     display: grid;
     margin-top: 15px;
@@ -20,6 +20,12 @@
       margin: 5px 0px;
       width: 100%;
     }
+  }
+
+  .loading {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
   }
 }
 

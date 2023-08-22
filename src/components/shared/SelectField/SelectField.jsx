@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Select from "react-select";
-import styles from "./SelectField.module.scss";
-import { Typography } from "../Typography";
 import { Icon } from "../Icon";
+import { Typography } from "../Typography";
+import styles from "./SelectField.module.scss";
 
 const SelectField = ({
   value,

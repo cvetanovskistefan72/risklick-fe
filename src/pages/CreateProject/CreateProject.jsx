@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { Typography } from "../../components/shared/Typography";
-import { useServices } from "../../context/ServiceContext";
-import { Loading } from "../../components/shared/Loading";
-import { useLoading } from "../../context/LoadingContext";
 import { CreateProjectForm } from "../../components/CreateProjectForm";
+import { Loading } from "../../components/shared/Loading";
+import { Typography } from "../../components/shared/Typography";
+import { useLoading } from "../../context/LoadingContext";
+import { useServices } from "../../context/ServiceContext";
 import styles from "./CreateProject.module.scss";
 
 const CreateProject = () => {
@@ -14,7 +14,7 @@ const CreateProject = () => {
     getServices();
   }, []);
 
-  if (loading) {
+  if (loading && !services) {
     return (
       <div className={styles.root}>
         <div className={styles.loading}>
@@ -23,6 +23,7 @@ const CreateProject = () => {
       </div>
     );
   }
+
   return (
     <div className={styles.root}>
       <Typography
@@ -32,7 +33,7 @@ const CreateProject = () => {
         size="sm"
       />
       <hr />
-      {services && <CreateProjectForm services={services} />}
+      <CreateProjectForm services={services} />
     </div>
   );
 };

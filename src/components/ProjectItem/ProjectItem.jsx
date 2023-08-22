@@ -1,10 +1,10 @@
 import React from "react";
 import { toast } from "react-hot-toast";
 import { useMediaQuery } from "react-responsive";
-import { Typography } from "../shared/Typography";
-import { Icon } from "../shared/Icon";
 import formatDate from "../../helpers/formatDate";
 import isOlderThanTwoMonths from "../../helpers/isOlderThanTwoMonths";
+import { Icon } from "../shared/Icon";
+import { Typography } from "../shared/Typography";
 import styles from "./ProjectItem.module.scss";
 
 const ProjectItem = ({ project }) => {

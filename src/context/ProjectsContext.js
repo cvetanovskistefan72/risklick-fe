@@ -1,13 +1,14 @@
 import React, { createContext, useContext, useState } from "react";
-import { PROJECTS_ENDPOINT, SERVICES_ENDPOINT } from "../api/endpoints";
-import { useApiClient } from "../hooks/useApiClient";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { PROJECTS_ENDPOINT } from "../api/endpoints";
+import { useApiClient } from "../hooks/useApiClient";
+import validateErrors from "../helpers/validateErrors";
 
 const ProjectsContext = createContext();
 
 export const ProjectsProvider = ({ children }) => {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState(null);
   const api = useApiClient();
   const navigate = useNavigate();
 
@@ -20,7 +21,13 @@ export const ProjectsProvider = ({ children }) => {
 
   const addProject = async (payload) => {
     try {
-      await api.post(SERVICES_ENDPOINT, payload);
+      const data = await api.post(PROJECTS_ENDPOINT, payload);
+
+      if (data.hasOwnProperty("success")) {
+        validateErrors(data.data);
+        return;
+      }
+
       toast.success("Project Created!");
       navigate("/");
     } catch (error) {}

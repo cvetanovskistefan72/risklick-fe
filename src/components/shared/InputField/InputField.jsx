@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./InputField.module.scss";
-import { Typography } from "../Typography";
 import { Icon } from "../Icon";
+import { Typography } from "../Typography";
+import styles from "./InputField.module.scss";
 const InputField = ({
   value,
   label,

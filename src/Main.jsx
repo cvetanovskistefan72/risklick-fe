@@ -1,13 +1,13 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-import { Login } from "./pages/Login";
-import { Projects } from "./pages/Projects";
-import { Layout } from "./components/Layout";
-import { CreateProject } from "./pages/CreateProject";
 import { Toaster } from "react-hot-toast";
+import { Route, Routes } from "react-router-dom";
+import { Layout } from "./components/Layout";
+import { RequireAuth } from "./components/shared/RequireAuth";
 import { ProjectsProvider } from "./context/ProjectsContext";
 import { ServicesProvider } from "./context/ServiceContext";
-import { RequireAuth } from "./components/shared/RequireAuth";
+import { CreateProject } from "./pages/CreateProject";
+import { Login } from "./pages/Login";
+import { Projects } from "./pages/Projects";
 
 const Main = () => {
   return (

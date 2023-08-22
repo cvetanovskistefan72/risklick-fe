@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Typography } from "../../components/shared/Typography";
+import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/shared/Button";
 import { InputField } from "../../components/shared/InputField";
-import { useNavigate } from "react-router-dom";
-import { useAuthentication } from "../../context/AuthContext";
 import { Loading } from "../../components/shared/Loading";
-import styles from "./Login.module.scss";
+import { Typography } from "../../components/shared/Typography";
+import { useAuthentication } from "../../context/AuthContext";
 import { useLoading } from "../../context/LoadingContext";
+import styles from "./Login.module.scss";
 
 const Login = () => {
   const navigate = useNavigate();

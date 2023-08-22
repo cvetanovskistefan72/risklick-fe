@@ -5,7 +5,7 @@ import { useApiClient } from "../hooks/useApiClient";
 const ServicesContext = createContext();
 
 export const ServicesProvider = ({ children }) => {
-  const [services, setServices] = useState([]);
+  const [services, setServices] = useState(null);
   const api = useApiClient();
   const getServices = async () => {
     try {

@@ -1,15 +1,19 @@
 import React, { useState } from "react";
-import { InputField } from "../shared/InputField";
-import { Button } from "../shared/Button";
 import { useNavigate } from "react-router-dom";
-import { SelectField } from "../shared/SelectField";
+import { useLoading } from "../../context/LoadingContext";
 import { useProjects } from "../../context/ProjectsContext";
+import { Button } from "../shared/Button";
+import { InputField } from "../shared/InputField";
+import { Loading } from "../shared/Loading";
+import { SelectField } from "../shared/SelectField";
 import styles from "./CreateProjectForm.module.scss";
 
 const CreateProjectForm = ({ services }) => {
   const { addProject } = useProjects();
   const [credentials, setCredentials] = useState({ name: "", service: null });
   const navigate = useNavigate();
+  const { loading } = useLoading();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const body = {
@@ -59,22 +63,29 @@ const CreateProjectForm = ({ services }) => {
         className={styles.services}
         value={credentials.service}
         onChange={handleChangeSelect}
-        options={modifiedServices}
+        options={modifiedServices || []}
       />
-      <div className={styles.buttons}>
-        <Button
-          buttonType="secondary"
-          text="Cancel"
-          size="medium"
-          onClick={cancel}
-        />
-        <Button
-          buttonType="primary"
-          text="Create"
-          size="medium"
-          type="submit"
-        />
-      </div>
+      {loading && (
+        <div className={styles.loading}>
+          <Loading isDark />
+        </div>
+      )}
+      {!loading && (
+        <div className={styles.buttons}>
+          <Button
+            buttonType="secondary"
+            text="Cancel"
+            size="medium"
+            onClick={cancel}
+          />
+          <Button
+            buttonType="primary"
+            text="Create"
+            size="medium"
+            type="submit"
+          />
+        </div>
+      )}
     </form>
   );
 };

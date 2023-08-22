@@ -6,6 +6,7 @@
   position: fixed;
   transform: translateX(-240px);
   transition: ease-in-out 0.3s;
+  z-index: 1;
   &.open {
     transform: translateX(0);
   }

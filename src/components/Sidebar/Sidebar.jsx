@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useAuthentication } from "../../context/AuthContext";
 import { Icon } from "../shared/Icon";
 import { Typography } from "../shared/Typography";
-import { useAuthentication } from "../../context/AuthContext";
 import styles from "./Sidebar.module.scss";
 
 const Sidebar = () => {
