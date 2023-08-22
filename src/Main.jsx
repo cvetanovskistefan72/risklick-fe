@@ -8,6 +8,7 @@ import { ServicesProvider } from "./context/ServiceContext";
 import { CreateProject } from "./pages/CreateProject";
 import { Login } from "./pages/Login";
 import { Projects } from "./pages/Projects";
+import { NotFound } from "./components/NotFound";
 
 const Main = () => {
   return (
@@ -35,7 +36,14 @@ const Main = () => {
               }
             />
           </Route>
-          <Route path="*" element={<div>Error 404</div>} />
+          <Route
+            path="*"
+            element={
+              <RequireAuth>
+                <NotFound />
+              </RequireAuth>
+            }
+          />
         </Routes>
         <Toaster position="top-right" />
       </ProjectsProvider>
